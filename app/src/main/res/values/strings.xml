@@ -1,0 +1,50 @@
+<resources>
+    <string name="app_name">TAP2PAY</string>
+    <string name="nfc_detected">NFC DETECTED</string>
+    <string name="write">WRITE</string>
+    <string name="pay">PAY</string>
+    <string name="enter_amount">Enter Amount </string>
+    <string name="account_balance"> view account balance </string>
+    <string name="account_balance_txt"> Account balance </string>
+    <string name="tap_txt">
+        Tap the back of your phone onto the POS to pay
+    </string>
+    <string name="top_up_txt">
+        Top up your account balance from your mobile money account.
+        Enter the amount of money to top up in the field below
+    </string>
+    <string name="top_up_hint"> Enter amount  </string>
+    <string name="top_up_btn_txt"> TOP UP </string>
+    <string name="icon_desc">ICON IMAGE FOR TAP2PAY</string>
+    <string name="send_otp"> SEND VERIFICATION CODE </string>
+    <string name="otp"> ENTER VERIFICATION CODE </string>
+    <string name="sign_up"> SIGN UP </string>
+    <string name="payment_title"> Payment History </string>
+    <string name="username">Username</string>
+    <string name="user_avatar">user avatar</string>
+    <string name="date">21/02/2021</string>
+    <string name="acc_details">Your Account Details</string>
+    <string name="phone_number">Enter Phone Number</string>
+    <string name="first_name">Enter First Name</string>
+    <string name="last_name">Enter Last Name</string>
+    <string name="verification_code">Enter verification code: </string>
+    <string name="code_hint">Enter Code Here </string>
+
+    <string name="settings_names">user names : </string>
+    <string name="settings_acc_bal">account_balance</string>
+    <string name="balance">Ugx: 245,000</string>
+    <string name="phone">0780730001</string>
+    <string name="settings_phone_num">phone Number : </string>
+
+    <!--  BOTTOM NAVIGATION BAR TITLES -->
+    <string name="tap2pay_title"> PAY </string>
+    <string name="top_up_title"> TOP UP </string>
+    <string name="payment_history_title"> HISTORY </string>
+    <string name="account_title"> PROFILE </string>
+
+    <!--  DEFAULT ENCRYPTION KEY  -->
+    <string name="default_public_key">MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCs8WHGqtb/6Q/aCi5qPiOf5PzLnyNpkNlj9b8N2d6F/H4y4RZVLL6z/o6HOLJMPNOhnsCtZIKigKeTkhDL5KkQMv0u0HullPIVHe/tmeULF0//S8hJGXFrC9FvNRKM2K37InevYn99kqd71W4pXYQd1lcYNwjAbcQKzSgID58DgQIDAQAB</string>
+    <string name="default_private_key">MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAKzxYcaq1v/pD9oKLmo+I5/k/MufI2mQ2WP1vw3Z3oX8fjLhFlUsvrP+joc4skw806GewK1kgqKAp5OSEMvkqRAy/S7Qe6WU8hUd7+2Z5QsXT/9LyEkZcWsL0W81EozYrfsid69if32Sp3vVbildhB3WVxg3CMBtxArNKAgPnwOBAgMBAAECgYA4AoEBH4k8HlYU7qEzpWZSPY4lwCdu5AuT1R4INVxdFnYkskNSWIh2sOWmI5WTHUwJFuod/eRVDse3AmJQNoEOBg6zP+LkofBmtVSZXYYJCMb8H/XwzCfMXlF8f8kA9e1CeecRnu4dQJSQHyn96frKYoaDq3jfCMSVZ583Do4XAQJBAOhgfPDoQ+lz2OMfVGnqHNM7oJz3B/rGi2AIFZSZzP52+Wb2XaeEqmPuLMScfq0soRKeE3CbYZOAs7JB4TNYyNECQQC+hiYNYfLBtaMH79EKpVNH+aGZbpilqW6emvb5gHKTqn0FQ+KP1wNMa78eNKPyarVmfZD/1Q4SGWOfRpwGtDuxAkEAsi8SfvPK518Chx3F77UpxztorBOsVboas1dfnOPWUaVPFomBROuwcBH42AYcCJQ5Knp185nh12YP5HcpxOKmkQJBAKxqYg1CUpmScpNAJ4Dm1FMSSXe8ak+g4QaPXmm0H/waEUGuiV16SvXhm/cN1EAQ6VBy2cFrYWxnpYwCLjiy6kECQEZF+iGAb+/j0aSyOoaTyl3VwrcfevQ910gRI8eFuA/i6h/xk3UbTULVzU4ZDk/TrI19UituGKh1yHRoyyHB2ZY=</string>
+    <string name="desc_icon">small icon for sign up</string>
+
+</resources>

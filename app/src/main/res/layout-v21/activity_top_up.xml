@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TopUpActivity"
+    android:background="@drawable/ic_new_bg">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="350dp"
+        android:layout_height="600dp"
+        android:background="@drawable/design"
+        android:orientation="horizontal"
+        android:padding="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.338">
+
+        <TextView
+            android:id="@+id/tap_txtView"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center_horizontal"
+            android:text="@string/top_up_txt"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textColor="@color/design_default_color_primary_dark"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.444"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/top_up_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/donate_120px"
+            app:layout_constraintEnd_toEndOf="@+id/tap_txtView"
+            app:layout_constraintStart_toStartOf="@+id/tap_txtView"
+            app:layout_constraintTop_toBottomOf="@+id/tap_txtView" />
+
+        <EditText
+            android:id="@+id/note"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:hint="@string/enter_amount"
+            android:background="@drawable/back_view_outline"
+            android:lines="1"
+            android:inputType="number"
+            android:textAlignment="center"
+            android:textColor="@color/design_default_color_primary_dark"
+            android:textColorHint="@color/design_default_color_primary_dark"
+            android:padding="6dp"
+            app:layout_constraintEnd_toEndOf="@+id/top_up_img"
+            app:layout_constraintStart_toStartOf="@+id/top_up_img"
+            app:layout_constraintTop_toBottomOf="@+id/top_up_img"
+            android:textAppearance="?attr/textAppearanceSubtitle1"
+            tools:ignore="RtlCompat" />
+
+        <Button
+            android:id="@+id/write_tag"
+            android:layout_width="245dp"
+            style="@style/Widget.MaterialComponents.Button"
+            android:backgroundTint="@color/design_default_color_primary_dark"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/top_up_btn_txt"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@+id/note"
+            app:layout_constraintStart_toStartOf="@+id/note"
+            app:layout_constraintTop_toBottomOf="@+id/note" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- THE BOTTOM NAVIGATION VIEW LAYOUT -->
+    <RelativeLayout
+        android:id="@+id/bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_nav_bar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/back_view"
+            app:menu="@menu/bottom_navigation_menu">
+
+        </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignUp"
+    android:background="@drawable/ic_new_bg">
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.266">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="@dimen/back_layout_width"
+            android:layout_height="@dimen/back_layout_height"
+            android:background="@drawable/design"
+            android:padding="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/signup_heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/sign_up"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/design_default_color_primary_dark"
+                android:textSize="@dimen/header_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:contentDescription="@string/desc_icon"
+                android:src="@drawable/ic_baseline_verified_user_24"
+                app:layout_constraintEnd_toEndOf="@+id/signup_heading"
+                app:layout_constraintHorizontal_bias="0.496"
+                app:layout_constraintStart_toStartOf="@+id/signup_heading"
+                app:layout_constraintTop_toBottomOf="@+id/signup_heading" />
+
+            <EditText
+                android:id="@+id/first_name"
+                android:layout_width="@dimen/editTxt_width"
+                android:layout_height="40dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/back_view_outline"
+                android:gravity="top"
+                android:hint="@string/first_name"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:padding="@dimen/editTxt_padding"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                android:textColor="@color/design_default_color_primary_dark"
+                android:textColorHint="@color/design_default_color_primary"
+                app:layout_constraintEnd_toEndOf="@+id/imageView"
+                app:layout_constraintHorizontal_bias="0.485"
+                app:layout_constraintStart_toStartOf="@+id/imageView"
+                app:layout_constraintTop_toBottomOf="@+id/imageView"
+                tools:ignore="RtlCompat" />
+
+            <EditText
+                android:id="@+id/second_name"
+                android:layout_width="@dimen/editTxt_width"
+                android:layout_height="40dp"
+                android:layout_marginTop="@dimen/default_marginTop"
+                android:background="@drawable/back_view_outline"
+                android:gravity="top"
+                android:hint="@string/last_name"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:padding="@dimen/editTxt_padding"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                android:textColor="@color/design_default_color_primary_dark"
+                android:textColorHint="@color/design_default_color_primary"
+                app:layout_constraintEnd_toEndOf="@+id/first_name"
+                app:layout_constraintHorizontal_bias="0.504"
+                app:layout_constraintStart_toStartOf="@+id/first_name"
+                app:layout_constraintTop_toBottomOf="@+id/first_name"
+                tools:ignore="RtlCompat" />
+
+            <EditText
+                android:id="@+id/phone_number"
+                android:layout_width="@dimen/editTxt_width"
+                android:layout_height="40dp"
+                android:layout_marginTop="@dimen/default_marginTop"
+                android:background="@drawable/back_view_outline"
+                android:gravity="top"
+                android:hint="@string/phone_number"
+                android:importantForAutofill="no"
+                android:inputType="phone"
+                android:padding="@dimen/editTxt_padding"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                android:textColor="@color/design_default_color_primary_dark"
+                android:textColorHint="@color/design_default_color_primary"
+                app:layout_constraintEnd_toEndOf="@+id/second_name"
+                app:layout_constraintHorizontal_bias="0.476"
+                app:layout_constraintStart_toStartOf="@+id/second_name"
+                app:layout_constraintTop_toBottomOf="@+id/second_name"
+                tools:ignore="RtlCompat" />
+
+            <Button
+                android:id="@+id/sign_up_btn"
+                android:layout_width="@dimen/btn_width"
+                android:layout_height="@dimen/btn_height"
+                android:layout_marginTop="45dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/topup_btn"
+                android:text="@string/send_otp"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/phone_number"
+                app:layout_constraintHorizontal_bias="0.476"
+                app:layout_constraintStart_toStartOf="@+id/phone_number"
+                app:layout_constraintTop_toBottomOf="@+id/phone_number" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,25 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/tap2pay"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_tap_and_play_24"
+        android:title="@string/tap2pay_title"/>
+    <item
+        android:id="@+id/topup_activity"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_settings_24"
+        android:title="@string/top_up_title" />
+    <item
+        android:id="@+id/payment_history_activity"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_verified_user_24"
+        android:title="@string/payment_history_title"/>
+
+    <item
+        android:id="@+id/profile"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_person_add_alt_1_24"
+        android:title="@string/account_title"/>
+
+</menu>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ic_new_bg"
+    tools:context=".VerificationActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="@dimen/back_layout_width"
+        android:layout_height="@dimen/back_layout_height"
+        android:background="@drawable/design"
+        android:padding="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/verification_heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:gravity="center_horizontal"
+            android:text="@string/otp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textColor="@color/design_default_color_primary_dark"
+            android:textSize="@dimen/header_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/otp_code"
+            android:layout_width="@dimen/editTxt_width"
+            android:layout_height="40dp"
+            android:layout_marginTop="@dimen/default_marginTop"
+            android:background="@drawable/back_view_outline"
+            android:gravity="top"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+            android:hint="@string/phone_number"
+            android:textColorHint="@color/design_default_color_primary"
+            android:importantForAutofill="no"
+            android:inputType="phone"
+            android:padding="@dimen/editTxt_padding"
+            android:textAlignment="center"
+            android:textColor="@color/design_default_color_primary_dark"
+            app:layout_constraintEnd_toEndOf="@+id/verification_heading"
+            app:layout_constraintHorizontal_bias="0.476"
+            app:layout_constraintStart_toStartOf="@+id/verification_heading"
+            app:layout_constraintTop_toBottomOf="@+id/verification_heading"
+            tools:ignore="RtlCompat" />
+
+        <Button
+            android:id="@+id/verify_btn"
+            android:layout_width="@dimen/btn_width"
+            android:layout_height="@dimen/btn_height"
+            android:layout_marginTop="@dimen/default_marginTop"
+            android:background="@drawable/topup_btn"
+            android:backgroundTint="@color/design_default_color_primary_dark"
+            android:text="@string/send_otp"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@+id/otp_code"
+            app:layout_constraintHorizontal_bias="0.476"
+            app:layout_constraintStart_toStartOf="@+id/otp_code"
+            app:layout_constraintTop_toBottomOf="@+id/otp_code" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
