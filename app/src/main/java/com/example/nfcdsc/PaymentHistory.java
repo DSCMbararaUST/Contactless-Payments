@@ -25,17 +25,21 @@ public class PaymentHistory extends AppCompatActivity {
     TextView account_balance_txt;
 
     //Global Variables to store the data from the MainActivity and the top up activity.
-    String account_balance;
-    double current_amount = 60000d;
+    String account_balance, amount_paid;
+    // Variable storing the amount that has been sent written to a tag via NFC
+    double current_amount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment_history);
 
-        Intent intent = getIntent();
+        // Intent to load data from the TopUp Activity and the payment activity(MainActivity).
+        Intent dataIntent = getIntent();
         //Account balance from the TopUp Activity
-        account_balance = intent.getStringExtra("MESSAGE");
+        account_balance = dataIntent.getStringExtra("MESSAGE");
+        //Data from the Main Activity
+        amount_paid = dataIntent.getStringExtra("AMOUNT CHARGED");
 
         // Amount from the transaction.
         //current_amount = Integer.parseInt(intent.getStringExtra("AMOUNT CHARGED"));
@@ -43,6 +47,8 @@ public class PaymentHistory extends AppCompatActivity {
         account_balance_txt = findViewById(R.id.acc_balance);
 
         double current_balance = Double.parseDouble(account_balance);
+
+        current_amount = Double.parseDouble(amount_paid);
 
         double updated_balance = current_balance-current_amount;
 
