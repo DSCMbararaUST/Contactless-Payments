@@ -80,7 +80,7 @@ public class MainActivity extends Activity {
     protected void onResume() {
         super.onResume();
         mResumed = true;
-        // Sticky notes received from Android
+        //Data received from Android
         if (NfcAdapter.ACTION_NDEF_DISCOVERED.equals(getIntent().getAction())) {
             NdefMessage[] messages = getNdefMessages(getIntent());
             byte[] payload = messages[0].getRecords()[0].getPayload();
@@ -107,7 +107,7 @@ public class MainActivity extends Activity {
             ToastMaker.toast(MainActivity.this,"P2P DATA EXCHANGE");
 
         }
-        // Tag writing mode
+        // Writing to the receiving device
         if (mWriteMode && NfcAdapter.ACTION_TAG_DISCOVERED.equals(intent.getAction())) {
             Tag detectedTag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
             writeTag(getNoteAsNdef(), detectedTag);
@@ -142,7 +142,7 @@ public class MainActivity extends Activity {
         enableTagWriteMode();
 
         new AlertDialog.Builder(MainActivity.this)
-                .setTitle("Touch tag to write")
+                .setTitle("Tap the device to pay")
                 .setOnCancelListener(dialog -> {
 
                     disableTagWriteMode();
