@@ -172,6 +172,7 @@ public class MainActivity extends Activity {
                 }).show();
     }
 
+    //Function to set the received data to the edit text
     private void setNoteBody(String body) {
         Editable text = mNote.getText();
         text.clear();
