@@ -1,13 +1,19 @@
 package com.example.nfcdsc;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -27,6 +33,11 @@ public class TopUpActivity extends AppCompatActivity {
         Button topUp = findViewById(R.id.write_tag);
 
         topUp.setOnClickListener(v -> {
+            //function to load Mobile money into the application
+            loadMoney();
+
+            // Function to send money from the top up activity to Payment History activity
+            // to compute the current account balance.
             transferTopUpData();
         });
 
@@ -41,13 +52,31 @@ public class TopUpActivity extends AppCompatActivity {
         if (!msg.isEmpty()) {
             Intent intent = new Intent(this, PaymentHistory.class);
             intent.putExtra("MESSAGE", msg);
-            startActivity(intent);
+            //startActivity(intent);
             amount.setText("");
         } else {
             ToastMaker.toast(TopUpActivity.this," ENTER ANY AMOUNT ");
             amount.requestFocus();
         }
+    }
 
+    //Prompting the dialog for entering USSD to load money to the application
+    private void loadMoney(){
+        //Encoding the # for use programmatically
+        String encodedHash = Uri.encode("#");
+        String ussd = "*" + "165" + encodedHash;
+
+        //Checking for user consent for the app to use the PHONE CALL permission.
+        if (ContextCompat.checkSelfPermission(TopUpActivity.this,
+                Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(TopUpActivity.this,
+                    new String[]{Manifest.permission.CALL_PHONE}, 1);
+
+        } else {
+            Intent dialIntent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + ussd));
+            startActivity(dialIntent);
+        }
     }
 
     // Function handling the bottom nav bar

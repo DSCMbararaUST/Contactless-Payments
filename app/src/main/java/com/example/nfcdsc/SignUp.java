@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -150,14 +151,16 @@ public class SignUp extends AppCompatActivity {
 
     //Sign in function
     private void signIn(PhoneAuthCredential credential){
-        mFirebaseAuth.signInWithCredential(credential).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()){
-                    //routing user to main activity if verification is done automatically
-                    routeToMain();
-                }
+        mFirebaseAuth.signInWithCredential(credential).addOnCompleteListener(task -> {
+            if (task.isSuccessful()){
+                //routing user to main activity if verification is done automatically
+                routeToMain();
             }
         });
+    }
+
+    // CHEATING FUNCTION
+    public void cheating(View view) {
+        startActivity(new Intent(SignUp.this, TopUpActivity.class));
     }
 }

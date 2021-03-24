@@ -131,6 +131,20 @@
                 app:layout_constraintStart_toStartOf="@+id/phone_number"
                 app:layout_constraintTop_toBottomOf="@+id/phone_number" />
 
+            <!-- TESTING THE TRANSFER LOGIC -->
+            <Button
+                android:id="@+id/cheating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="45dp"
+                android:layout_marginBottom="30dp"
+                android:text="cheat"
+                android:textColor="@color/black"
+                android:onClick="cheating"
+                app:layout_constraintEnd_toEndOf="@+id/sign_up_btn"
+                app:layout_constraintStart_toStartOf="@+id/sign_up_btn"
+                app:layout_constraintTop_toBottomOf="@+id/sign_up_btn" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>

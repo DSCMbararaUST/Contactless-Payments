@@ -8,7 +8,7 @@
     <item
         android:id="@+id/topup_activity"
         android:enabled="true"
-        android:icon="@drawable/ic_baseline_settings_24"
+        android:icon="@drawable/ic_baseline_attach_money_24"
         android:title="@string/top_up_title" />
     <item
         android:id="@+id/payment_history_activity"

@@ -20,7 +20,8 @@
     <string name="otp"> ENTER VERIFICATION CODE </string>
     <string name="sign_up"> SIGN UP </string>
     <string name="payment_title"> Payment History </string>
-    <string name="username">Username</string>
+    <string name="username">Username : </string>
+    <string name="uname"> code_maestro </string>
     <string name="user_avatar">user avatar</string>
     <string name="date">21/02/2021</string>
     <string name="acc_details">Account Details</string>

@@ -36,9 +36,9 @@ public class SettingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
 
         //Binding the UI variables to their xml ids
-        names = findViewById(R.id.names_field);
+        names = findViewById(R.id.username_field);
         acc_balance = findViewById(R.id.balance_field);
-        phoneNo = findViewById(R.id.phone_field);
+        phoneNo = findViewById(R.id.phone_number_field);
 
         Intent stringIntent = getIntent();
 
