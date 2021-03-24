@@ -99,7 +99,7 @@
                         android:text="@string/uname"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                         android:textColor="@color/black"
-                        android:textColorHint="@color/design_default_color_primary_dark"
+                        android:textColorHint="@color/black"
                         android:textSize="18sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="@id/username_label"
@@ -181,7 +181,8 @@
                         app:layout_constraintEnd_toEndOf="@id/balance_label"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="@+id/balance_label"
-                        app:layout_constraintTop_toBottomOf="@id/balance_label" />
+                        app:layout_constraintTop_toBottomOf="@id/balance_label"
+                        tools:ignore="SmallSp" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -234,8 +235,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
                         android:layout_marginLeft="20dp"
-                        android:hint="@string/phone"
-                        android:textColorHint="@color/design_default_color_primary_dark"
                         android:text="@string/settings_phone_num"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                         android:textColor="@color/design_default_color_primary_dark"
@@ -255,6 +254,8 @@
                         android:paddingLeft="@dimen/date_padding"
                         android:paddingRight="@dimen/date_padding"
                         android:text="@string/phone"
+                        android:hint="@string/phone"
+                        android:textColorHint="@color/black"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                         android:textColor="@color/black"
                         android:textSize="18sp"
