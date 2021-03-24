@@ -32,10 +32,10 @@
     <string name="code_hint">Enter Code Here </string>
 
     <string name="settings_names">user names : </string>
-    <string name="settings_acc_bal">account_balance</string>
+    <string name="settings_acc_bal">Account balance : </string>
     <string name="balance">Ugx: 245,000</string>
     <string name="phone">0780730001</string>
-    <string name="settings_phone_num">phone Number : </string>
+    <string name="settings_phone_num">Phone number : </string>
 
     <!--  BOTTOM NAVIGATION BAR TITLES -->
     <string name="tap2pay_title"> PAY </string>
