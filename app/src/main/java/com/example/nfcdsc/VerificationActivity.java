@@ -25,9 +25,8 @@ import com.google.firebase.auth.PhoneAuthProvider;
 
 public class VerificationActivity extends AppCompatActivity {
 
-    //UI Views
+    //Global variables for UI Views
     private EditText otp_editText;
-    private Button verify_btn;
 
     //Global variable storing the OTP code from intent.
     String OTPcode;
@@ -42,26 +41,22 @@ public class VerificationActivity extends AppCompatActivity {
 
         //Binding the views to java logic
         otp_editText = findViewById(R.id.otp_code);
-        verify_btn = findViewById(R.id.verify_btn);
+        Button verify_btn = findViewById(R.id.verify_btn);
 
         OTPcode = getIntent().getStringExtra("OTP_CODE");
 
-        verify_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        verify_btn.setOnClickListener(v -> {
+            // Capturing the OTP CODE entered by the user.
+            String verification_code = otp_editText.getText().toString();
 
-                // Capturing the OTP CODE entered by the user.
-                String verification_code = otp_editText.getText().toString();
+            if (!verification_code.isEmpty()){
+                PhoneAuthCredential credential = PhoneAuthProvider.getCredential(OTPcode,
+                        verification_code);
 
-                if (!verification_code.isEmpty()){
-                    PhoneAuthCredential credential = PhoneAuthProvider.getCredential(OTPcode,
-                            verification_code);
-
-                    signIn(credential);
-                }else{
-                    ToastMaker.toast(VerificationActivity.this,
-                            "PLEASE ENTER THE OTP CODE THAT HAS BEEN SENT 🤨");
-                }
+                signIn(credential);
+            }else{
+                ToastMaker.toast(VerificationActivity.this,
+                        "PLEASE ENTER THE OTP CODE THAT HAS BEEN SENT 🤨");
             }
         });
     }
@@ -87,13 +82,10 @@ public class VerificationActivity extends AppCompatActivity {
 
     //Sign in function
     private void signIn(PhoneAuthCredential credential){
-        mFirebaseAuth.signInWithCredential(credential).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()){
-                    //routing user to main activity if verification is done automatically
-                    routeToMain();
-                }
+        mFirebaseAuth.signInWithCredential(credential).addOnCompleteListener(task -> {
+            if (task.isSuccessful()){
+                //routing user to main activity if verification is done automatically
+                routeToMain();
             }
         });
     }
