@@ -18,14 +18,13 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
  */
 
 public class TopUpActivity extends AppCompatActivity {
-    private Button topUp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_top_up);
 
-        topUp = findViewById(R.id.write_tag);
+        Button topUp = findViewById(R.id.write_tag);
 
         topUp.setOnClickListener(v -> {
             transferTopUpData();
