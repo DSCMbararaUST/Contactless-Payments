@@ -169,14 +169,10 @@
                         app:layout_constraintVertical_bias="0.0"
                         tools:ignore="SmallSp" />
 
-                    <EditText
+                    <TextView
                         android:id="@+id/balance_field"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:importantForAutofill="no"
-                        android:inputType="number"
-                        android:hint="@string/balance"
-                        android:textColorHint="@color/design_default_color_primary_dark"
                         android:text="@string/balance"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                         android:textColor="@color/black"
@@ -185,8 +181,7 @@
                         app:layout_constraintEnd_toEndOf="@id/balance_label"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="@+id/balance_label"
-                        app:layout_constraintTop_toBottomOf="@id/balance_label"
-                        tools:ignore="LabelFor" />
+                        app:layout_constraintTop_toBottomOf="@id/balance_label" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

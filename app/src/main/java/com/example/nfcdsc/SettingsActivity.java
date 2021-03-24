@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.nfcdsc.adapters.RecyclerViewAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -26,7 +27,8 @@ import java.util.ArrayList;
 public class SettingsActivity extends AppCompatActivity {
 
     //UI Global variables
-    private EditText names, acc_balance, phoneNo;
+    private EditText names, phoneNo;
+    private TextView acc_balance;
     //Global properties
     private String username, balance, phone;
 
