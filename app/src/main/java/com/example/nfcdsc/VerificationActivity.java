@@ -62,15 +62,15 @@ public class VerificationActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onStart() {
-        super.onStart();
+    protected void onResume() {
+        super.onResume();
         //Checking if user is logged in already
         FirebaseUser currentUser = mFirebaseAuth.getCurrentUser();
 
         if (currentUser!=null){
             routeToMain();
         }else{
-            ToastMaker.toast(VerificationActivity.this, "You are not signed up yet");
+            ToastMaker.toast(this, "You are not signed up yet");
         }
     }
 

@@ -31,7 +31,6 @@ import java.util.concurrent.TimeUnit;
  * @author Michael Ajuna and Baluku Edgar <michaelajnew@gmail.com, edgarbaluku@gmail.com>
  *
  */
-
 public class SignUp extends AppCompatActivity {
 
     //Global variables for UI components
@@ -169,7 +168,7 @@ public class SignUp extends AppCompatActivity {
              *
              */
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference reference = database.getReference("user_data");
+                DatabaseReference reference = database.getReference().child("user_data");
 
                 firstname = fname.getText().toString();
                 lastname = lname.getText().toString();
@@ -182,7 +181,7 @@ public class SignUp extends AppCompatActivity {
              *
              * function routing user to main activity if verification is done automatically
              */
-                //routeToMain();
+                routeToMain();
             }
         });
     }

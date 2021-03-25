@@ -41,18 +41,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:contentDescription="@string/desc_icon"
-                android:src="@drawable/ic_baseline_verified_user_24"
-                app:layout_constraintEnd_toEndOf="@+id/signup_heading"
-                app:layout_constraintHorizontal_bias="0.496"
-                app:layout_constraintStart_toStartOf="@+id/signup_heading"
-                app:layout_constraintTop_toBottomOf="@+id/signup_heading" />
-
             <EditText
                 android:id="@+id/first_name"
                 android:layout_width="@dimen/editTxt_width"
@@ -68,10 +56,10 @@
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
                 android:textColor="@color/design_default_color_primary_dark"
                 android:textColorHint="@color/design_default_color_primary"
-                app:layout_constraintEnd_toEndOf="@+id/imageView"
+                app:layout_constraintEnd_toEndOf="@+id/signup_heading"
                 app:layout_constraintHorizontal_bias="0.485"
-                app:layout_constraintStart_toStartOf="@+id/imageView"
-                app:layout_constraintTop_toBottomOf="@+id/imageView"
+                app:layout_constraintStart_toStartOf="@+id/signup_heading"
+                app:layout_constraintTop_toBottomOf="@+id/signup_heading"
                 tools:ignore="RtlCompat" />
 
             <EditText
@@ -121,11 +109,9 @@
                 android:layout_width="@dimen/btn_width"
                 android:layout_height="@dimen/btn_height"
                 android:layout_marginTop="45dp"
-                android:layout_marginBottom="30dp"
                 android:background="@drawable/topup_btn"
                 android:text="@string/send_otp"
                 android:textColor="@color/white"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/phone_number"
                 app:layout_constraintHorizontal_bias="0.476"
                 app:layout_constraintStart_toStartOf="@+id/phone_number"

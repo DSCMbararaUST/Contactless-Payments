@@ -1,5 +1,7 @@
 package com.example.nfcdsc;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -14,7 +16,13 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.nfcdsc.adapters.RecyclerViewAdapter;
+import com.example.nfcdsc.db_objects.Data;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -42,29 +50,52 @@ public class SettingsActivity extends AppCompatActivity {
         acc_balance = findViewById(R.id.balance_field);
         phoneNo = findViewById(R.id.phone_number_field);
 
-        Intent stringIntent = getIntent();
+//        Intent stringIntent = getIntent();
 
-        username = stringIntent.getStringExtra("USERNAME");
-        balance = stringIntent.getStringExtra("BALANCE");
-        phone = stringIntent.getStringExtra("CONTACT");
-
-        names.setText(username);
-        acc_balance.setText(balance);
-        phoneNo.setText(phone);
-
-        //Getting the realtime database instance and a reference to the database
-//      FirebaseDatabase database = FirebaseDatabase.getInstance();
-//      DatabaseReference reference = database.getReference("user_data");
+//        username = stringIntent.getStringExtra("USERNAME");
+//        balance = stringIntent.getStringExtra("BALANCE");
+//        phone = stringIntent.getStringExtra("CONTACT");
 //
-//      reference.addChildEventListener(new ChildEventListener() {
-//      @Override
-//      public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-//          Data user_data = dataSnapshot.getValue(Data.class);
-//
-//          names.setText(user_data.getFirstname() + " " + user_data.getLastname());
-//          phoneNo.setText(user_data.getPhone);
-//      }
-//  });
+//        names.setText(username);
+//        acc_balance.setText(balance);
+//        phoneNo.setText(phone);
+
+        /**
+         *
+         * Getting the realtime database instance and a reference to the database
+         */
+          FirebaseDatabase database = FirebaseDatabase.getInstance();
+          DatabaseReference reference = database.getReference("user_data");
+
+          reference.addChildEventListener(new ChildEventListener() {
+              @Override
+              public void onChildAdded(@NonNull DataSnapshot dataSnapshot, String s) {
+                  Data user_data = dataSnapshot.getValue(Data.class);
+
+                  names.setText(user_data.getFirstname() + " " + user_data.getLastname());
+                  phoneNo.setText(user_data.getPhone());
+              }
+
+              @Override
+              public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+              }
+
+              @Override
+              public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+              }
+
+              @Override
+              public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+              }
+
+              @Override
+              public void onCancelled(@NonNull DatabaseError error) {
+
+              }
+          });
 
         //Functions
         handleBottomNavBarActions();
