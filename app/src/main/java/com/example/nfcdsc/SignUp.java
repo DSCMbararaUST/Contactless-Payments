@@ -21,6 +21,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.concurrent.TimeUnit;
 
@@ -78,7 +80,6 @@ public class SignUp extends AppCompatActivity {
 //                fname.requestFocus();
 //            }
 
-
         });
 
         mCallBacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
@@ -96,8 +97,11 @@ public class SignUp extends AppCompatActivity {
             public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
                 super.onCodeSent(s, forceResendingToken);
 
-                //Delaying the routing to the Verification Activity
-                // for user to manually enter the OTP code.
+                /**
+                 * Delaying the routing to the Verification Activity
+                 *  for user to manually enter the OTP code.
+                 *
+                 */
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -107,7 +111,6 @@ public class SignUp extends AppCompatActivity {
                         startActivity(otpIntent);
                     }
                 }, 10000);
-
 
             }
         };
@@ -155,19 +158,25 @@ public class SignUp extends AppCompatActivity {
         mFirebaseAuth.signInWithCredential(credential).addOnCompleteListener(task -> {
             if (task.isSuccessful()){
 
-                //Getting the realtime database instance and a reference to the database
-//                FirebaseDatabase database = FirebaseDatabase.getInstance();
-//                DatabaseReference reference = database.getReference("user_data");
-//
-//                firstname = fname.getText().toString();
-//                lastname = lname.getText().toString();
-//                phone = phoneNo.getText().toString();
+            /**
+             *  Getting the realtime database instance and a reference to the database
+             *
+             */
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference reference = database.getReference("user_data");
 
-//                Data user_data = new Data(firstname, lastname, phone, null);
-//                reference.push().setValue(user_data);
+                firstname = fname.getText().toString();
+                lastname = lname.getText().toString();
+                phone = phoneNo.getText().toString();
 
-                //routing user to main activity if verification is done automatically
-                routeToMain();
+                Data user_data = new Data(firstname, lastname, phone, null);
+                reference.push().setValue(user_data);
+
+            /**
+             *
+             * function routing user to main activity if verification is done automatically
+             */
+                //routeToMain();
             }
         });
     }
