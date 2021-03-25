@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.nfcdsc.db_objects.Data;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
@@ -153,6 +154,18 @@ public class SignUp extends AppCompatActivity {
     private void signIn(PhoneAuthCredential credential){
         mFirebaseAuth.signInWithCredential(credential).addOnCompleteListener(task -> {
             if (task.isSuccessful()){
+
+                //Getting the realtime database instance and a reference to the database
+//                FirebaseDatabase database = FirebaseDatabase.getInstance();
+//                DatabaseReference reference = database.getReference("user_data");
+//
+//                firstname = fname.getText().toString();
+//                lastname = lname.getText().toString();
+//                phone = phoneNo.getText().toString();
+
+//                Data user_data = new Data(firstname, lastname, phone, null);
+//                reference.push().setValue(user_data);
+
                 //routing user to main activity if verification is done automatically
                 routeToMain();
             }
