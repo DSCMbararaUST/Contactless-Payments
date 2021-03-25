@@ -50,7 +50,10 @@ public class SignUp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        //Instantiating firebase authentication
+        /**
+         *
+         * Instantiating firebase authentication
+         */
         mFirebaseAuth = FirebaseAuth.getInstance();
 
         //Binding the xml to java
@@ -111,7 +114,6 @@ public class SignUp extends AppCompatActivity {
                         startActivity(otpIntent);
                     }
                 }, 10000);
-
             }
         };
     }
@@ -120,7 +122,11 @@ public class SignUp extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        //Checking if user is logged in already
+        /**
+         *
+         *  Checking if user is logged in already
+         *
+         */
         FirebaseUser currentUser = mFirebaseAuth.getCurrentUser();
 
         if (currentUser!=null){
