@@ -52,6 +52,20 @@ public class SettingsActivity extends AppCompatActivity {
         acc_balance.setText(balance);
         phoneNo.setText(phone);
 
+        //Getting the realtime database instance and a reference to the database
+//      FirebaseDatabase database = FirebaseDatabase.getInstance();
+//      DatabaseReference reference = database.getReference("user_data");
+//
+//      reference.addChildEventListener(new ChildEventListener() {
+//      @Override
+//      public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+//          Data user_data = dataSnapshot.getValue(Data.class);
+//
+//          names.setText(user_data.getFirstname() + " " + user_data.getLastname());
+//          phoneNo.setText(user_data.getPhone);
+//      }
+//  });
+
         //Functions
         handleBottomNavBarActions();
     }
