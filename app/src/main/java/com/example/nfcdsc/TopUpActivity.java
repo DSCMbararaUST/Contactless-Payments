@@ -52,7 +52,7 @@ public class TopUpActivity extends AppCompatActivity {
         if (!msg.isEmpty()) {
             Intent intent = new Intent(this, PaymentHistory.class);
             intent.putExtra("MESSAGE", msg);
-            //startActivity(intent);
+            startActivity(intent);
             amount.setText("");
         } else {
             ToastMaker.toast(TopUpActivity.this," ENTER ANY AMOUNT ");

@@ -65,7 +65,7 @@ public class SettingsActivity extends AppCompatActivity {
          * Getting the realtime database instance and a reference to the database
          */
           FirebaseDatabase database = FirebaseDatabase.getInstance();
-          DatabaseReference reference = database.getReference("user_data");
+          DatabaseReference reference = database.getReference().child("user_data");
 
           reference.addChildEventListener(new ChildEventListener() {
               @Override

@@ -49,7 +49,7 @@
         <EditText
             android:id="@+id/note"
             android:layout_width="240dp"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_marginTop="40dp"
             android:hint="@string/enter_amount"
             android:background="@drawable/back_view_outline"
@@ -70,7 +70,7 @@
             android:layout_width="245dp"
             style="@style/Widget.MaterialComponents.Button"
             android:backgroundTint="@color/design_default_color_primary_dark"
-            android:layout_height="50dp"
+            android:layout_height="45dp"
             android:layout_marginTop="20dp"
             android:text="@string/top_up_btn_txt"
             android:textColor="@color/white"

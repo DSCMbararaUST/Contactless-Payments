@@ -44,6 +44,8 @@ public class PaymentHistory extends AppCompatActivity {
         // Amount from the transaction.
         //current_amount = Integer.parseInt(intent.getStringExtra("AMOUNT CHARGED"));
 
+        
+
         account_balance_txt = findViewById(R.id.acc_balance);
 
         double current_balance = Double.parseDouble(account_balance);
