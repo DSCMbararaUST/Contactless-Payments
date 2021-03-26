@@ -52,18 +52,14 @@ public class PaymentHistory extends AppCompatActivity {
         }else{
 
             //Account balance from the TopUp Activity
-            account_balance = dataIntent.getStringExtra("MESSAGE");
+            amount_paid = dataIntent.getStringExtra("MESSAGE");
             account_balance_txt = findViewById(R.id.acc_balance);
-            account_balance_txt.setText(account_balance);
+            account_balance_txt.setText(amount_paid);
         }
-        //Data from the Main Activity
-        //amount_paid = dataIntent.getStringExtra("AMOUNT CHARGED");
 
         //FUNCTIONS.
         populateRecyclerView();
         handleBottomNavBarActions();
-
-
     }
 
     // METHOD/FUNCTION TO POPULATE THE PAYMENT HISTORY RECYCLER VIEW LIST
@@ -106,13 +102,13 @@ public class PaymentHistory extends AppCompatActivity {
 
                 account_balance_txt = findViewById(R.id.acc_balance);
 
-                //double current_balance = Double.parseDouble(account_balance);
+                double current_balance = Double.parseDouble(account_balance);
 
-                //current_amount = Double.parseDouble(amount_paid);
+                current_amount = Double.parseDouble(amount_paid);
 
-                //double updated_balance = current_balance-current_amount;
+                double updated_balance = current_balance+current_amount;
 
-                //account_balance = String.valueOf(updated_balance);
+                account_balance = String.valueOf(updated_balance);
 
                 // Formatting the account balance for the view
                 //String my_acc_balance = String.format("%,d", account_balance);
