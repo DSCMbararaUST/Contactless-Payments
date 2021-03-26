@@ -119,6 +119,17 @@
                 app:layout_constraintStart_toStartOf="@+id/phone_number"
                 app:layout_constraintTop_toBottomOf="@+id/phone_number" />
 
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="cheat"
+                android:onClick="cheat"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/sign_up_btn"
+                app:layout_constraintHorizontal_bias="0.476"
+                app:layout_constraintStart_toStartOf="@+id/sign_up_btn"
+                app:layout_constraintTop_toBottomOf="@+id/sign_up_btn"/>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>

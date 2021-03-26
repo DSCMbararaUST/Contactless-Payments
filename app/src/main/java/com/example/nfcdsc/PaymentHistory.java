@@ -52,7 +52,7 @@ public class PaymentHistory extends AppCompatActivity {
         }else{
 
             //Account balance from the TopUp Activity
-            amount_paid = dataIntent.getStringExtra("MESSAGE");
+            amount_paid = dataIntent.getStringExtra("AMOUNT");
             account_balance_txt = findViewById(R.id.acc_balance);
             account_balance_txt.setText(amount_paid);
         }

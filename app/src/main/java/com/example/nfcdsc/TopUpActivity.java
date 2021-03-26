@@ -13,7 +13,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -30,7 +29,7 @@ public class TopUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_top_up);
 
-        Button topUp = findViewById(R.id.write_tag);
+        Button topUp = findViewById(R.id.process_payment);
 
         topUp.setOnClickListener(v -> {
             //function to load Mobile money into the application
