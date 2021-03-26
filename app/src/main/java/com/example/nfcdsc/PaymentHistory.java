@@ -44,20 +44,25 @@ public class PaymentHistory extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment_history);
 
-        // Intent to load data from the TopUp Activity and the payment activity(MainActivity).
-        //Intent dataIntent = getIntent();
-        //Account balance from the TopUp Activity
-        //account_balance = dataIntent.getStringExtra("MESSAGE");
+        //Intent to load data from the TopUp Activity and the payment activity(MainActivity).
+        Intent dataIntent = getIntent();
+
+        if (dataIntent==null){
+            userDataCalc();
+        }else{
+
+            //Account balance from the TopUp Activity
+            account_balance = dataIntent.getStringExtra("MESSAGE");
+            account_balance_txt = findViewById(R.id.acc_balance);
+            account_balance_txt.setText(account_balance);
+        }
         //Data from the Main Activity
         //amount_paid = dataIntent.getStringExtra("AMOUNT CHARGED");
-
-        // Amount from the transaction.
-        //current_amount = Integer.parseInt(intent.getStringExtra("AMOUNT CHARGED"));
 
         //FUNCTIONS.
         populateRecyclerView();
         handleBottomNavBarActions();
-        userDataCalc();
+
 
     }
 
@@ -66,45 +71,16 @@ public class PaymentHistory extends AppCompatActivity {
 
         RecyclerView recyclerView = findViewById(R.id.payment_history_list);
 
-//        Intent stringIntent = getIntent();
-//
-//        String data = stringIntent.getStringExtra("AMOUNT CHARGED");
+        Intent stringIntent = getIntent();
 
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, "data");
+        if (stringIntent==null){
+            ToastMaker.toast(PaymentHistory.this, " MAKE SOME TRANSACTIONS ");
+        }else{
+            String data = stringIntent.getStringExtra("AMOUNT CHARGED");
+            RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, data);
+            recyclerView.setAdapter(adapter);
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));}
 
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-    }
-
-    // Function handling the bottom nav bar
-    private void handleBottomNavBarActions(){
-
-        //Handling the Bottom navigation view actions
-        BottomNavigationView bottomNavigationView = (BottomNavigationView)
-                findViewById(R.id.bottom_nav_bar);
-
-        // CHECKING THE CURRENT CLICKED BOTTOM NAV BAR MENU ITEM
-        Menu menu = bottomNavigationView.getMenu();
-        MenuItem menuItem = menu.getItem(2);
-        menuItem.setChecked(true);
-
-        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
-            switch (item.getItemId()){
-                case R.id.tap2pay:
-                    startActivity(new Intent(this, MainActivity.class));
-                    break;
-                case R.id.topup_activity:
-                    startActivity(new Intent(this, TopUpActivity.class));
-                    break;
-                case R.id.payment_history_activity:
-                    break;
-                case R.id.profile:
-                    startActivity(new Intent(this,SettingsActivity.class));
-                    break;
-            }
-            return false;
-        });
     }
 
     /**
@@ -152,4 +128,35 @@ public class PaymentHistory extends AppCompatActivity {
             }
         });
     }
+
+    // Function handling the bottom nav bar
+    private void handleBottomNavBarActions(){
+
+        //Handling the Bottom navigation view actions
+        BottomNavigationView bottomNavigationView = (BottomNavigationView)
+                findViewById(R.id.bottom_nav_bar);
+
+        // CHECKING THE CURRENT CLICKED BOTTOM NAV BAR MENU ITEM
+        Menu menu = bottomNavigationView.getMenu();
+        MenuItem menuItem = menu.getItem(2);
+        menuItem.setChecked(true);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+            switch (item.getItemId()){
+                case R.id.tap2pay:
+                    startActivity(new Intent(this, MainActivity.class));
+                    break;
+                case R.id.topup_activity:
+                    startActivity(new Intent(this, TopUpActivity.class));
+                    break;
+                case R.id.payment_history_activity:
+                    break;
+                case R.id.profile:
+                    startActivity(new Intent(this,SettingsActivity.class));
+                    break;
+            }
+            return false;
+        });
+    }
+
 }
