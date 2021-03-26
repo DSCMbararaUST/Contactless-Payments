@@ -171,7 +171,7 @@ public class SignUp extends AppCompatActivity {
                 lastname = lname.getText().toString();
                 phone = phoneNo.getText().toString();
 
-                Data user_data = new Data(firstname, lastname, phone, null);
+                Data user_data = new Data(firstname, lastname, phone, "sh.340,000");
                 reference.push().setValue(user_data);
 
             /**

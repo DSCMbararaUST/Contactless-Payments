@@ -1,18 +1,28 @@
 package com.example.nfcdsc;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
 import com.example.nfcdsc.adapters.RecyclerViewAdapter;
+import com.example.nfcdsc.db_objects.Data;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 /**
  *
@@ -35,36 +45,19 @@ public class PaymentHistory extends AppCompatActivity {
         setContentView(R.layout.activity_payment_history);
 
         // Intent to load data from the TopUp Activity and the payment activity(MainActivity).
-        Intent dataIntent = getIntent();
+        //Intent dataIntent = getIntent();
         //Account balance from the TopUp Activity
-        account_balance = dataIntent.getStringExtra("MESSAGE");
+        //account_balance = dataIntent.getStringExtra("MESSAGE");
         //Data from the Main Activity
-        amount_paid = dataIntent.getStringExtra("AMOUNT CHARGED");
+        //amount_paid = dataIntent.getStringExtra("AMOUNT CHARGED");
 
         // Amount from the transaction.
         //current_amount = Integer.parseInt(intent.getStringExtra("AMOUNT CHARGED"));
 
-        
-
-        account_balance_txt = findViewById(R.id.acc_balance);
-
-        double current_balance = Double.parseDouble(account_balance);
-
-        current_amount = Double.parseDouble(amount_paid);
-
-        double updated_balance = current_balance-current_amount;
-
-        account_balance = String.valueOf(updated_balance);
-
-        // Formatting the account balance for the view
-        //String my_acc_balance = String.format("%,d", account_balance);
-
-        account_balance_txt.setText(account_balance);
-        //messageView.setText((int) current_amount);
-
         //FUNCTIONS.
         populateRecyclerView();
         handleBottomNavBarActions();
+        userDataCalc();
 
     }
 
@@ -73,11 +66,11 @@ public class PaymentHistory extends AppCompatActivity {
 
         RecyclerView recyclerView = findViewById(R.id.payment_history_list);
 
-        Intent stringIntent = getIntent();
+//        Intent stringIntent = getIntent();
+//
+//        String data = stringIntent.getStringExtra("AMOUNT CHARGED");
 
-        String data = stringIntent.getStringExtra("AMOUNT CHARGED");
-
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, data);
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, "data");
 
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -114,4 +107,49 @@ public class PaymentHistory extends AppCompatActivity {
         });
     }
 
+    /**
+     *
+     * GFunction to read data from the firebase realtime database.
+     */
+    private void userDataCalc(){
+        /**
+         *
+         * Getting the realtime database instance and a reference to the database
+         */
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference().child("user_data/-MWiSGkq-y3J6TDvpl2s");
+
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Data post = dataSnapshot.getValue(Data.class);
+
+                assert post != null;
+                account_balance = post.getBalance();
+
+                account_balance_txt = findViewById(R.id.acc_balance);
+
+                //double current_balance = Double.parseDouble(account_balance);
+
+                //current_amount = Double.parseDouble(amount_paid);
+
+                //double updated_balance = current_balance-current_amount;
+
+                //account_balance = String.valueOf(updated_balance);
+
+                // Formatting the account balance for the view
+                //String my_acc_balance = String.format("%,d", account_balance);
+
+                account_balance_txt.setText(account_balance);
+                //messageView.setText((int) current_amount);
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("The read failed: " + databaseError.getCode());
+            }
+        });
+    }
 }

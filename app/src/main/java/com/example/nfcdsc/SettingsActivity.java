@@ -23,6 +23,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -60,45 +61,46 @@ public class SettingsActivity extends AppCompatActivity {
 //        acc_balance.setText(balance);
 //        phoneNo.setText(phone);
 
+        //Functions
+        handleBottomNavBarActions();
+        retrieveUserData();
+    }
+
+    /**
+     *
+     * Function to read data from the firebase realtime database.
+     */
+    private void retrieveUserData(){
         /**
          *
          * Getting the realtime database instance and a reference to the database
          */
-          FirebaseDatabase database = FirebaseDatabase.getInstance();
-          DatabaseReference reference = database.getReference().child("user_data");
 
-          reference.addChildEventListener(new ChildEventListener() {
-              @Override
-              public void onChildAdded(@NonNull DataSnapshot dataSnapshot, String s) {
-                  Data user_data = dataSnapshot.getValue(Data.class);
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference().child("user_data");
 
-                  names.setText(user_data.getFirstname() + " " + user_data.getLastname());
-                  phoneNo.setText(user_data.getPhone());
-              }
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Data post = dataSnapshot.getValue(Data.class);
 
-              @Override
-              public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                assert post != null;
+                username = post.getFirstname();
+                balance = post.getLastname();
+                phone = post.getPhone();
 
-              }
+                names.setText(username);
+                acc_balance.setText(balance);
+                phoneNo.setText(phone);
 
-              @Override
-              public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+                System.out.println(post);
+            }
 
-              }
-
-              @Override
-              public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-              }
-
-              @Override
-              public void onCancelled(@NonNull DatabaseError error) {
-
-              }
-          });
-
-        //Functions
-        handleBottomNavBarActions();
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("The read failed: " + databaseError.getCode());
+            }
+        });
     }
 
     @Override

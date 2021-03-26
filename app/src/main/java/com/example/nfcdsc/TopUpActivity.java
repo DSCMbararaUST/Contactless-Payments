@@ -45,6 +45,10 @@ public class TopUpActivity extends AppCompatActivity {
         handleBottomNavBarActions();
     }
 
+    /**
+     *
+     * Function to send an intentExtra of money from the top up activity
+     */
     private void transferTopUpData(){
         EditText amount = findViewById(R.id.note);
         String msg = amount.getText().toString();
@@ -60,7 +64,10 @@ public class TopUpActivity extends AppCompatActivity {
         }
     }
 
-    //Prompting the dialog for entering USSD to load money to the application
+    /**
+     * Function Prompting the dialog for entering USSD to load money to the application
+     */
+
     private void loadMoney(){
         //Encoding the # for use programmatically
         String encodedHash = Uri.encode("#");

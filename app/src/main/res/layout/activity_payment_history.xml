@@ -73,7 +73,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="@string/balance"
+            android:text=""
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
             android:textColor="@color/white"
             android:textSize="20sp"
