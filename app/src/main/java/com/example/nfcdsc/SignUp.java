@@ -104,14 +104,11 @@ public class SignUp extends AppCompatActivity {
                  *  for user to manually enter the OTP code.
                  *
                  */
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        ToastMaker.toast(SignUp.this,"OTP CODE HAS BEEN SENT");
-                        Intent otpIntent = new Intent(SignUp.this, VerificationActivity.class);
-                        otpIntent.putExtra("OTP_CODE", s);
-                        startActivity(otpIntent);
-                    }
+                new Handler().postDelayed(() -> {
+                    ToastMaker.toast(SignUp.this,"OTP CODE HAS BEEN SENT");
+                    Intent otpIntent = new Intent(SignUp.this, VerificationActivity.class);
+                    otpIntent.putExtra("OTP_CODE", s);
+                    //startActivity(otpIntent);
                 }, 10000);
             }
         };
@@ -184,10 +181,5 @@ public class SignUp extends AppCompatActivity {
                 routeToMain();
             }
         });
-    }
-
-    // CHEATING FUNCTION
-    public void cheating(View view) {
-        startActivity(new Intent(SignUp.this, TopUpActivity.class));
     }
 }

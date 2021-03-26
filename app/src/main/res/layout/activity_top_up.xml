@@ -30,12 +30,11 @@
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
             android:textColor="@color/design_default_color_primary_dark"
-            android:textSize="18sp"
+            android:textSize="22sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.444"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
 
         <ImageView
             android:id="@+id/top_img"
@@ -50,7 +49,7 @@
         <EditText
             android:id="@+id/note"
             android:layout_width="240dp"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_marginTop="40dp"
             android:hint="@string/enter_amount"
             android:background="@drawable/back_view_outline"
@@ -69,7 +68,6 @@
         <Button
             android:id="@+id/write_tag"
             android:layout_width="245dp"
-            style="@style/Widget.MaterialComponents.Button"
             android:backgroundTint="@color/design_default_color_primary_dark"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
