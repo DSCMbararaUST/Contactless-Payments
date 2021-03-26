@@ -85,7 +85,7 @@ public class MainActivity extends Activity {
             NdefMessage[] messages = getNdefMessages(getIntent());
             byte[] payload = messages[0].getRecords()[0].getPayload();
             setNoteBody(new String(payload));
-            setIntent(new Intent()); // Consume this intent.
+            setIntent(new Intent());
         }
         enableNdefExchangeMode();
     }
