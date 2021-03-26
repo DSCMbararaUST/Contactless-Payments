@@ -77,16 +77,16 @@ public class SettingsActivity extends AppCompatActivity {
          */
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference ref = database.getReference().child("user_data");
+        DatabaseReference ref = database.getReference().child("user_data/-MWiSGkq-y3J6TDvpl2s");
 
         ref.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Data post = dataSnapshot.getValue(Data.class);
 
                 assert post != null;
                 username = post.getFirstname();
-                balance = post.getLastname();
+                balance = post.getBalance();
                 phone = post.getPhone();
 
                 names.setText(username);
