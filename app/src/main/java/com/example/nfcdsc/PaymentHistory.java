@@ -35,7 +35,7 @@ public class PaymentHistory extends AppCompatActivity {
     TextView account_balance_txt;
 
     //Global Variables to store the data from the MainActivity and the top up activity.
-    String account_balance, amount_paid;
+    String account_balance, amount_paid, topped_amount, new_bal;
     // Variable storing the amount that has been sent written to a tag via NFC
     double current_amount;
 
@@ -44,22 +44,31 @@ public class PaymentHistory extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment_history);
 
+        account_balance_txt = findViewById(R.id.acc_balance);
+
         //Intent to load data from the TopUp Activity and the payment activity(MainActivity).
-        Intent dataIntent = getIntent();
+        //Intent dataIntent = getIntent();
 
-        if (dataIntent==null){
-            userDataCalc();
-        }else{
-
+        //if (dataIntent!=null){
             //Account balance from the TopUp Activity
-            amount_paid = dataIntent.getStringExtra("AMOUNT");
-            account_balance_txt = findViewById(R.id.acc_balance);
+            //topped_amount = dataIntent.getStringExtra("MESSAGE");
+            //amount_paid = dataIntent.getStringExtra("PAID");
+//
+//            Double new_balance = Double.parseDouble(topped_amount) - Double.parseDouble(amount_paid);
+//
+//            new_bal = String.valueOf(new_balance);
+
             account_balance_txt.setText(amount_paid);
-        }
+
+//        }else{
+//            //userDataCalc();
+//        }
 
         //FUNCTIONS.
         populateRecyclerView();
         handleBottomNavBarActions();
+
+        userDataCalc();
     }
 
     // METHOD/FUNCTION TO POPULATE THE PAYMENT HISTORY RECYCLER VIEW LIST
@@ -69,14 +78,16 @@ public class PaymentHistory extends AppCompatActivity {
 
         Intent stringIntent = getIntent();
 
-        if (stringIntent==null){
-            ToastMaker.toast(PaymentHistory.this, " MAKE SOME TRANSACTIONS ");
-        }else{
-            String data = stringIntent.getStringExtra("AMOUNT CHARGED");
+        if (stringIntent!=null){
+
+            String data = stringIntent.getStringExtra("PAID");
             RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, data);
             recyclerView.setAdapter(adapter);
-            recyclerView.setLayoutManager(new LinearLayoutManager(this));}
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        }else{
+            ToastMaker.toast(PaymentHistory.this, " MAKE SOME TRANSACTIONS ");
+        }
     }
 
     /**
@@ -90,7 +101,7 @@ public class PaymentHistory extends AppCompatActivity {
          */
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference ref = database.getReference().child("user_data/-MWiSGkq-y3J6TDvpl2s");
+        DatabaseReference ref = database.getReference().child("user_data/new_user/-MWmLvWdn_Q_b505DTnA");
 
         ref.addValueEventListener(new ValueEventListener() {
             @Override
@@ -99,16 +110,14 @@ public class PaymentHistory extends AppCompatActivity {
 
                 assert post != null;
                 account_balance = post.getBalance();
-
-                account_balance_txt = findViewById(R.id.acc_balance);
-
-                double current_balance = Double.parseDouble(account_balance);
-
-                current_amount = Double.parseDouble(amount_paid);
-
-                double updated_balance = current_balance+current_amount;
-
-                account_balance = String.valueOf(updated_balance);
+//
+//                double current_balance = Double.parseDouble(account_balance);
+//
+//                current_amount = Double.parseDouble(amount_paid);
+//
+//                double updated_balance = current_balance+current_amount;
+//
+//                account_balance = String.valueOf(updated_balance);
 
                 // Formatting the account balance for the view
                 //String my_acc_balance = String.format("%,d", account_balance);
