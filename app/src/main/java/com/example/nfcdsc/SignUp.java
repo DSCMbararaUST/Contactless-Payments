@@ -182,9 +182,4 @@ public class SignUp extends AppCompatActivity {
             }
         });
     }
-
-    // cheat authentication and test logic
-    public void cheat(View view){
-        startActivity(new Intent(SignUp.this, MainActivity.class));
-    }
 }

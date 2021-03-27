@@ -159,7 +159,7 @@ public class MainActivity extends Activity {
 
         String paid = mMoney.getText().toString();
 
-        if(storedMoney.isEmpty()){
+        if(paid.isEmpty()){
             ToastMaker.toast(this, "Make a transaction first ! ");
         }else{
             Intent transferIntent = new Intent(this, PaymentHistory.class);
@@ -167,8 +167,6 @@ public class MainActivity extends Activity {
 
             startActivity(transferIntent);
         }
-
-
     };
 
     private void promptForContent(final NdefMessage msg) {
