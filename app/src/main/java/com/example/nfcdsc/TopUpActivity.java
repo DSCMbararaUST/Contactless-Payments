@@ -14,7 +14,10 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.nfcdsc.db_objects.Data;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 /**
  *
@@ -34,7 +37,6 @@ public class TopUpActivity extends AppCompatActivity {
         topUp.setOnClickListener(v -> {
             //function to load Mobile money into the application
             loadMoney();
-
             // Function to send money from the top up activity to Payment History activity
             // to compute the current account balance.
             transferTopUpData();
@@ -53,10 +55,13 @@ public class TopUpActivity extends AppCompatActivity {
         String msg = amount.getText().toString();
 
         if (!msg.isEmpty()) {
-            Intent intent = new Intent(this, PaymentHistory.class);
-            intent.putExtra("MESSAGE", msg);
-            startActivity(intent);
-            amount.setText("");
+//            Intent intent = new Intent(this, PaymentHistory.class);
+//            intent.putExtra("MESSAGE", msg);
+//            startActivity(intent);
+//            amount.setText("");
+
+            saveAmount(msg);
+
         } else {
             ToastMaker.toast(TopUpActivity.this," ENTER ANY AMOUNT ");
             amount.requestFocus();
@@ -83,6 +88,18 @@ public class TopUpActivity extends AppCompatActivity {
             Intent dialIntent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + ussd));
             startActivity(dialIntent);
         }
+    }
+
+    /**
+     *
+     *  Save topup  amount to database
+     */
+    private void saveAmount(String money){
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference reference = database.getReference().child("user_data");
+
+        Data user_data = new Data(null, null, null, money);
+        reference.push().setValue(user_data);
     }
 
     // Function handling the bottom nav bar
