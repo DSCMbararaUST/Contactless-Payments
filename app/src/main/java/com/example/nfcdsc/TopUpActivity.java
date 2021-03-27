@@ -113,7 +113,7 @@ public class TopUpActivity extends AppCompatActivity {
 
         // CHECKING THE CURRENT CLICKED BOTTOM NAV BAR MENU ITEM
         Menu menu = bottomNavigationView.getMenu();
-        MenuItem menuItem = menu.getItem(1);
+        MenuItem menuItem = menu.getItem(2);
         menuItem.setChecked(true);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
@@ -122,9 +122,9 @@ public class TopUpActivity extends AppCompatActivity {
                     startActivity(new Intent(this, MainActivity.class));
                     break;
                 case R.id.topup_activity:
-                    startActivity(new Intent(this, TopUpActivity.class));
                     break;
                 case R.id.payment_history_activity:
+                    startActivity(new Intent(this, PaymentHistory.class));
                     break;
                 case R.id.profile:
                     startActivity(new Intent(this,SettingsActivity.class));
