@@ -35,11 +35,13 @@ public class TopUpActivity extends AppCompatActivity {
         Button topUp = findViewById(R.id.process_payment);
 
         topUp.setOnClickListener(v -> {
-            //function to load Mobile money into the application
-            loadMoney();
+
             // Function to send money from the top up activity to Payment History activity
             // to compute the current account balance.
             transferTopUpData();
+
+            //function to load Mobile money into the application
+            loadMoney();
         });
 
         //Function to handle the bottom nav bar actions
@@ -96,7 +98,7 @@ public class TopUpActivity extends AppCompatActivity {
      */
     private void saveAmount(String money){
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference reference = database.getReference().child("user_data");
+        DatabaseReference reference = database.getReference().child("user_data/new_user");
 
         Data user_data = new Data(null, null, null, money);
         reference.push().setValue(user_data);
